@@ -74,8 +74,8 @@ if __name__ == '__main__':
             except telebot.apihelper.ApiTelegramException:
                 bot.send_message(id_u, text="Oops! Your notes are empty", reply_markup=markup)
 
-
         elif user.get_endMessage():
-                user.append_message(str(message.text))
+            user.append_message(str(message.text))
+
 
     bot.polling(none_stop=True, interval=0)
