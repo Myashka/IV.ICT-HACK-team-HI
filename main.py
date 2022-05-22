@@ -57,22 +57,28 @@ if __name__ == '__main__':
 
         if message.text == 'Start note':
             user.changeEndMessage()
+
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             end_button = types.KeyboardButton("End note")
             markup.add(end_button)
+
             bot.send_message(id_u, text='Start writing your notes', reply_markup=markup)
 
         elif message.text == 'End note':
             try:
                 user.changeEndMessage()
+
                 markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
                 start_button = types.KeyboardButton("Start note")
                 markup.add(start_button)
+
                 prediction = model.predict(user.get_text())
+
                 bot.send_message(id_u, text=prediction, reply_markup=markup)
                 user.delete_text()
             except telebot.apihelper.ApiTelegramException:
-                bot.send_message(id_u, text="Oops! Your notes are empty", reply_markup=markup)
+                bot.send_message(id_u, text="Oops! Your notes are empty. Please, tell me, what events"
+                                            " were happened with you today?", reply_markup=markup)
 
         elif user.get_endMessage():
             user.append_message(str(message.text))
