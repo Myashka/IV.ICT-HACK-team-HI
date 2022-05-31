@@ -8,3 +8,6 @@
 <li>
 <a href="https://github.com/Myashka/IV.ICT-HACK-team-HI/blob/main/Notebooks/Huggy_face_trainer.ipynb">Jup-HuggingFace-Trainer</a> - попытка обучения классификатора на основе distill-BERT'a с помощью Hugging Face
 </li>
+<li>
+<a href="https://github.com/Myashka/IV.ICT-HACK-team-HI/blob/main/Notebooks/DataMining.ipynb">Data Mining</a> создание своего набора данных
+</li>
