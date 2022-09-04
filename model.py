@@ -3,15 +3,18 @@ import generationText_API as gen
 
 
 def predict(text):
-    output = emotion.query({'inputs': text})
+    output = emotion.query({"inputs": text})
     emotion_dict = {}
 
     for i in range(len(output[0])):
-        emotion_dict[output[0][i]['label']] = output[0][i]['score']
+        emotion_dict[output[0][i]["label"]] = output[0][i]["score"]
 
-    emotion_dict['neutral'] = -1
+    emotion_dict["neutral"] = -1
 
-    sorted_em_dict = {k: v for k, v in sorted(emotion_dict.items(), key=lambda item: item[1], reverse=True)}
+    sorted_em_dict = {
+        k: v
+        for k, v in sorted(emotion_dict.items(), key=lambda item: item[1], reverse=True)
+    }
 
     request_text = ""
     keys = list(sorted_em_dict.keys())
